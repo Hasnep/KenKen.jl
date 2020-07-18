@@ -83,7 +83,7 @@ for cage in puzzle.cages
         kenken,
         reduce(
             cage.operation,
-            [x[i, j, k] * k for (i, j) in cage.cells for k in 1:(puzzle.size)],
+            [sum(x[i, j, k] * k for k in 1:(puzzle.size)) for (i, j) in cage.cells],
         ) == cage.target
     )
 end
